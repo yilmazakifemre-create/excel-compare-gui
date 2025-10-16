@@ -61,11 +61,18 @@ def read_values_from_workbook(path, range_str):
         coords.append((r, col_idx))
     return values, coords, wb, ws
 
-def color_and_save(wb, ws, coords, is_match_map, out_path):
-    # is_match_map: dict of (row,col) -> True/False
-    for (r,c), is_match in is_match_map.items():
+def color_and_save(wb, ws, is_match_map, out_path):
+    """
+    is_match_map: dict with keys (row, col) -> True/False
+    Colors cells in ws according to map and saves workbook to out_path.
+    """
+    for (r, c), is_match in is_match_map.items():
         cell = ws.cell(row=r, column=c)
-        cell.fill = GREEN_FILL if is_match else RED_FILL
+        try:
+            cell.fill = GREEN_FILL if is_match else RED_FILL
+        except Exception:
+            # ignore cells that can't be filled for any reason
+            pass
     wb.save(out_path)
 
 def compare_and_write(file1, range1, file2, range2, target_col1, target_col2, case_sensitive=False):
