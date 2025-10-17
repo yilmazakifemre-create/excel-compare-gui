@@ -1,26 +1,8 @@
-# Excel Compare — Renkli Arayüz
+\# Akif Emre Yılmaz – Excel Karşılaştırma
 
-Basit bir masaüstü uygulama (Tkinter + openpyxl) ile iki Excel dosyasındaki belirli aralıkları karşılaştırır:
-- Aynı olan hücreleri **yeşil**, farklı/hitap edemeyenleri **kırmızı** ile boyar (kopya dosyalara kaydeder).
-- Aynı olanları yan yana **result_matches.xlsx** dosyasına yazar (örneğin C ve D sütunları).
+İki Excel dosyasını karşılaştırır, aynı olan hücreleri \*\*yeşil\*\*, farklı olanları \*\*kırmızı\*\* renkle vurgular.
 
-## Kullanım
-1. Python 3.8+ kurulu olmalı.
-2. Gerekli paketleri yükleyin:
-```bash
-pip install -r requirements.txt
-```
-3. `main.py` çalıştırın:
-```bash
-python main.py
-```
+Ek olarak belirli satır aralığı ve arama filtresi ile çalışabilir.
 
-## Notlar
-- Aralık formatı: `A1:A100` veya `B2:B200` veya `A:A` gibi.
-- Uygulama, aktif çalışma dizinine (çalıştırdığınız klasöre) şu dosyaları kaydeder:
-  - `<file1_basename>_colored.xlsx`
-  - `<file2_basename>_colored.xlsx`
-  - `result_matches.xlsx`
 
-## Lisans
-MIT
+
